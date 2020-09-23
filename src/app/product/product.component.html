@@ -4,5 +4,13 @@
 <!-- property binding -->
 <div [hidden]="hide" [innerText]="department"></div>
 
+<div *ngIf="hide" [innerText]="department"></div>
+
+
 <!-- event binding -->
 <button (click)="toggle()">Toggle</button>
+
+<ge-product-list></ge-product-list>
+
+{{product.name  + ' Category: ' + product.category}}
+{{1+1}}
