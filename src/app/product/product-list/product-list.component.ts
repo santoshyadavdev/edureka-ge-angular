@@ -21,7 +21,7 @@ export class ProductListComponent implements OnInit {
       id:3 ,category : 'Mobile' ,mfd : new Date('10-Mar-2019') ,name : 'Xiomi',
       price : 65000
     }
-  ]
+  ];
 
   fontstyle ='red';
 

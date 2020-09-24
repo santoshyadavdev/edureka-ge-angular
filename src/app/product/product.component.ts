@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit, Component,
+  OnInit, QueryList, ViewChild, ViewChildren
+} from '@angular/core';
+
+import { HeaderComponent } from '../header/header.component';
 import { Product } from './product';
 
 @Component({
@@ -6,7 +11,13 @@ import { Product } from './product';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit, AfterViewInit {
+
+  @ViewChild(HeaderComponent, {
+    static: true
+  }) headerComponent: HeaderComponent;
+
+  @ViewChildren(HeaderComponent) headerListComponet: QueryList<HeaderComponent>;
 
   name: string = 'Suchita';
 
@@ -25,6 +36,15 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.headerComponent.title = 'Hello User';
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.headerListComponet.forEach((headerComp) => headerComp.title = 'New Prodict List');
+    }, 0);
+
+    this.headerListComponet.forEach((headerComp) => headerComp.title = 'New Prodict List');
   }
 
   toggle() {

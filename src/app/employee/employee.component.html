@@ -1,3 +1,15 @@
 <h1>
   Employee Component
 </h1>
+
+<button mat-raised-button color="primary" (click)="addEmployee()">
+  Add Employee
+</button>
+
+<ge-employee-list
+[empList]="employees"
+title="Employee of the Month"
+(selectedEmployee)="getSelectedEmployee($event)"
+></ge-employee-list>
+
+{{selectedEmployee?.name}}

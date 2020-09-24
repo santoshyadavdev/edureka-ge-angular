@@ -12,5 +12,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'edureka-app';
 
-  role= 'Users'; // User
+  role= 'User'; // User
 }

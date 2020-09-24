@@ -2,19 +2,19 @@
   Hello World!
 </h1>
 
-<!-- <div [ngSwitch]="role">
+<div [ngSwitch]="role">
     <div *ngSwitchCase="'Admin'">
       <ge-product></ge-product>
     </div>
-    <div *ngSwitchCase="'User'">
-      <ge-employee></ge-employee>
-    </div>
+    <!-- <ng-container *ngSwitchCase="'User'"> -->
+      <ge-employee *ngSwitchCase="'User'"></ge-employee>
+    <!-- </ng-container> -->
     <div *ngSwitchDefault>
       You are not assigned to a role!
     </div>
-</div> -->
+</div>
 
 
-
+<!--
 <ge-product></ge-product>
-<ge-employee></ge-employee>
+<ge-employee></ge-employee> -->
