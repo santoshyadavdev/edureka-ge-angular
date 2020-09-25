@@ -1,12 +1,15 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
 import { Employee } from './employee';
 
 @Component({
   selector: 'ge-employee',
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+  styleUrls: ['./employee.component.css'],
+  encapsulation : ViewEncapsulation.None
 })
 export class EmployeeComponent implements OnInit {
+
+  @HostBinding('class') class = 'ge-employee';
 
   employees : Employee[] = [
     {

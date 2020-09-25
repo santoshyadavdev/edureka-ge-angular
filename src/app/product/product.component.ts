@@ -1,7 +1,7 @@
 import {
   AfterViewInit, Component,
   ElementRef,
-  OnInit, QueryList, Renderer2, ViewChild, ViewChildren
+  OnInit, QueryList, Renderer2, ViewChild, ViewChildren, ViewEncapsulation
 } from '@angular/core';
 
 import { HeaderComponent } from '../header/header.component';
@@ -10,7 +10,8 @@ import { Product } from './product';
 @Component({
   selector: 'ge-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  // encapsulation : ViewEncapsulation.ShadowDom
 })
 export class ProductComponent implements OnInit, AfterViewInit {
 
