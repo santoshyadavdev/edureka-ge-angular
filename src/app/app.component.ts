@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Optional, SkipSelf } from '@angular/core';
+import { Employee } from './employee/employee';
+import { EmployeeService } from './employee/services/employee.service';
+import { LoggerService } from './logger.service';
 
 @Component({
   selector: 'ge-root',
@@ -13,4 +16,24 @@ export class AppComponent {
   title = 'edureka-app';
 
   role= 'User'; // User
+
+  constructor(@SkipSelf() private employeeService: EmployeeService,
+    @Optional() private loggerService: LoggerService) {
+
+    }
+
+  addEmployee() {
+    const employee: Employee = {
+      id: 6,
+      dob: new Date('1-Jan-2005'),
+      email: 'test5@gmail.com',
+      name: 'Suchite',
+      salary: 50000
+    };
+
+    this.employeeService.addEmployee(employee);
+    if(this.loggerService) {
+      this.loggerService.log('New Employee added');
+    }
+  }
 }
