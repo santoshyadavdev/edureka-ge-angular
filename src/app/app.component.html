@@ -1,20 +1,26 @@
 <h1>
   Hello World!
 </h1>
-
+<!--
 <div [ngSwitch]="role">
     <div *ngSwitchCase="'Admin'">
       <ge-product></ge-product>
     </div>
-    <!-- <ng-container *ngSwitchCase="'User'"> -->
+     <ng-container *ngSwitchCase="'User'">
       <ge-employee *ngSwitchCase="'User'"></ge-employee>
-    <!-- </ng-container> -->
+    </ng-container>
     <div *ngSwitchDefault>
       You are not assigned to a role!
     </div>
-</div>
+</div> -->
 
 
-<!--
-<ge-product></ge-product>
-<ge-employee></ge-employee> -->
+
+
+<ge-container>
+  <h1>
+    This is content projection.
+  </h1>
+  <ge-employee></ge-employee>
+  <ge-product></ge-product>
+</ge-container>

@@ -1,6 +1,7 @@
 import {
   AfterViewInit, Component,
-  OnInit, QueryList, ViewChild, ViewChildren
+  ElementRef,
+  OnInit, QueryList, Renderer2, ViewChild, ViewChildren
 } from '@angular/core';
 
 import { HeaderComponent } from '../header/header.component';
@@ -19,6 +20,8 @@ export class ProductComponent implements OnInit, AfterViewInit {
 
   @ViewChildren(HeaderComponent) headerListComponet: QueryList<HeaderComponent>;
 
+  @ViewChild('footer', {static: true }) footerDiv: ElementRef;
+
   name: string = 'Suchita';
 
   department: string = 'Tech';
@@ -33,13 +36,19 @@ export class ProductComponent implements OnInit, AfterViewInit {
     price: 65000
   };
 
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.headerComponent.title = 'Hello User';
+
+    this.renderer.setProperty(this.footerDiv.nativeElement, 'innerText', 'This is a footer appeneded using viewChild');
+
+    // this.footerDiv.nativeElement.innerText = "This is a footer appeneded using viewChild";
   }
 
   ngAfterViewInit() {
+
+
     setTimeout(() => {
       this.headerListComponet.forEach((headerComp) => headerComp.title = 'New Prodict List');
     }, 0);
