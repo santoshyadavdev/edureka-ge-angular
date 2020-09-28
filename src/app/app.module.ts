@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -22,6 +22,7 @@ import { PokemonDetailsComponent } from './pokemon/pokemon-details/pokemon-detai
 import { CommentsComponent } from './comments/comments.component';
 import { CommentsListComponent } from './comments/comments-list/comments-list.component';
 import { PhotosComponent } from './comments/photos/photos.component';
+import { ApiInterceptor } from './api.interceptor';
 
 const loggerService = environment.production ? LoggerService : [];
 
@@ -50,7 +51,11 @@ const loggerService = environment.production ? LoggerService : [];
     HttpClientModule,
     MatDividerModule
   ],
-  providers: [loggerService],
+  providers: [loggerService,
+    {
+      provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { HttpClient, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Comment } from './comments';
@@ -11,18 +11,26 @@ export class CommentsService {
 
   apiEndpoint = 'http://jsonplaceholder.typicode.com';
 
+  commenHeader = new HttpHeaders().set('token', 'dgfhjkdsghjsfdg');
+
   constructor(private http: HttpClient) { }
 
   getComments(): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`${this.apiEndpoint}/comments`);
+    return this.http.get<Comment[]>(`${this.apiEndpoint}/comments`, {
+      headers: this.commenHeader
+    });
   }
 
   addCommments(comment: Comment): Observable<Comment> {
-    return this.http.post<Comment>(`${this.apiEndpoint}/comments`, comment);
+    return this.http.post<Comment>(`${this.apiEndpoint}/comments`, comment, {
+      headers: this.commenHeader
+    });
   }
 
   updateComments(comment: Comment) {
-    return this.http.put<Comment>(`${this.apiEndpoint}/comments/${comment.id}`, comment);
+    return this.http.put<Comment>(`${this.apiEndpoint}/comments/${comment.id}`, comment, {
+      headers: this.commenHeader
+    });
   }
 
   deleteComments() {
