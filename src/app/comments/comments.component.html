@@ -1,0 +1,14 @@
+<button mat-raised-button color="primary" (click)="addComment()">
+  Add Comment
+</button>
+<mat-divider>
+</mat-divider>
+<button mat-raised-button color="primary" (click)="updateComment()">
+  Update Comment
+</button>
+<mat-divider></mat-divider>
+<button mat-raised-button color="primary" (click)="deleteComment()">
+  Delete Comment
+</button>
+
+<ge-comments-list [comments]="commentList$ | async"></ge-comments-list>

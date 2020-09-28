@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,8 @@ import { LoggerService } from './logger.service';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.component';
 import { PokemonDetailsComponent } from './pokemon/pokemon-details/pokemon-details.component';
+import { CommentsComponent } from './comments/comments.component';
+import { CommentsListComponent } from './comments/comments-list/comments-list.component';
 
 const loggerService = environment.production ? LoggerService : [];
 
@@ -32,7 +35,9 @@ const loggerService = environment.production ? LoggerService : [];
     ContainerComponent,
     PokemonComponent,
     PokemonListComponent,
-    PokemonDetailsComponent
+    PokemonDetailsComponent,
+    CommentsComponent,
+    CommentsListComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,8 @@ const loggerService = environment.production ? LoggerService : [];
     BrowserAnimationsModule,
     MatTableModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDividerModule
   ],
   providers: [loggerService],
   bootstrap: [AppComponent]
