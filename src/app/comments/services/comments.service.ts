@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Comment } from './comments';
+import { Photos } from './photos';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,14 @@ export class CommentsService {
 
   deleteComments() {
     return this.http.delete(`${this.apiEndpoint}/comments/1`);
+  }
+
+  getPhotos() {
+    const request = new HttpRequest('GET', `${this.apiEndpoint}/photos`, {
+      reportProgress: true
+    });
+
+    return this.http.request<Photos[]>(request);
   }
 
 

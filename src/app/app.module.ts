@@ -21,6 +21,7 @@ import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.compon
 import { PokemonDetailsComponent } from './pokemon/pokemon-details/pokemon-details.component';
 import { CommentsComponent } from './comments/comments.component';
 import { CommentsListComponent } from './comments/comments-list/comments-list.component';
+import { PhotosComponent } from './comments/photos/photos.component';
 
 const loggerService = environment.production ? LoggerService : [];
 
@@ -37,7 +38,8 @@ const loggerService = environment.production ? LoggerService : [];
     PokemonListComponent,
     PokemonDetailsComponent,
     CommentsComponent,
-    CommentsListComponent
+    CommentsListComponent,
+    PhotosComponent
   ],
   imports: [
     BrowserModule,
