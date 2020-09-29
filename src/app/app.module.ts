@@ -1,9 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +28,9 @@ import { CommentsComponent } from './comments/comments.component';
 import { CommentsListComponent } from './comments/comments-list/comments-list.component';
 import { PhotosComponent } from './comments/photos/photos.component';
 import { ApiInterceptor } from './api.interceptor';
+import { CommentsAddComponent } from './comments/comments-add/comments-add.component';
+import { EmployeeonboardingComponent } from './employee/employeeonboarding/employeeonboarding.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const loggerService = environment.production ? LoggerService : [];
 
@@ -40,7 +48,9 @@ const loggerService = environment.production ? LoggerService : [];
     PokemonDetailsComponent,
     CommentsComponent,
     CommentsListComponent,
-    PhotosComponent
+    PhotosComponent,
+    CommentsAddComponent,
+    EmployeeonboardingComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +59,13 @@ const loggerService = environment.production ? LoggerService : [];
     MatTableModule,
     MatButtonModule,
     HttpClientModule,
-    MatDividerModule
+    MatDividerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [loggerService,
     {

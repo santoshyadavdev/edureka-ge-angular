@@ -1,0 +1,117 @@
+{{nameFilter.value | json}}
+<input type="text" [formControl]="nameFilter" placeholder="Enter the text to search">
+
+{{onboardingForm.value | json}}
+
+<form [formGroup]="onboardingForm" class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" placeholder="Ex. Test">
+    <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error> -->
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" placeholder="Ex. pat@example.com">
+    <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error> -->
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Choose DOB</mat-label>
+    <input matInput formControlName="dob" [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <div formGroupName="address">
+    <mat-form-field class="example-full-width">
+      <mat-label>Address Line1</mat-label>
+      <input matInput formControlName="addr1" placeholder="Ex. stree 401">
+      <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Address Line2</mat-label>
+      <input matInput formControlName="addr2" placeholder="Ex. fdfkjds">
+      <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>City</mat-label>
+      <input matInput formControlName="city" placeholder="Ex. pune">
+      <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Pin</mat-label>
+      <input matInput formControlName="pin" placeholder="Ex. 400061">
+      <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+    </mat-form-field>
+  </div>
+
+  <div formArrayName="pastExp">
+    <div *ngFor="let control of pastExp.controls; let i=index">
+      <div [formGroupName]="i">
+        <mat-form-field class="example-full-width">
+          <mat-label>Employer</mat-label>
+          <input matInput formControlName="employer" placeholder="Ex. GE">
+          <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error> -->
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>From Date</mat-label>
+          <input matInput formControlName="fromDate" [matDatepicker]="fromDate">
+          <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+          <mat-datepicker #fromDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>To Date</mat-label>
+          <input matInput formControlName="toDate" [matDatepicker]="toDate">
+          <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+          <mat-datepicker #toDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Designation</mat-label>
+          <input matInput formControlName="designation" placeholder="Ex. Software Developer">
+          <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error> -->
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+</form>

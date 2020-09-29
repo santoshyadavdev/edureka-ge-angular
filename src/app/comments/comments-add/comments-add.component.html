@@ -1,0 +1,47 @@
+{{comment | json}}
+<pre>
+{{commentForm.invalid | json }}
+{{commentForm.valid | json }}
+{{commentForm.value | json }}
+{{commentForm.pristine | json }}
+{{commentForm.dirty | json }}
+{{commentForm.errors | json }}
+</pre>
+<form #commentForm="ngForm" (ngSubmit)="addComments(commentForm)">
+  <div class="form-group">
+    <input #postid="ngModel" required min="1" max="10" class="form-control" type="number" [(ngModel)]="comment.postId"
+      [ngModelOptions]="{ name: 'postid', updateOn : 'submit' }" placeholder="Post ID">
+    <div *ngIf="postid.hasError('required')">
+      Please provide the Post Id!
+    </div>
+  </div>
+  <div class="form-group">
+    <input #name="ngModel" required class="form-control" type="text" [(ngModel)]="comment.name" name="name"
+      [ngModelOptions]="{ updateOn : 'submit' }" placeholder="Name">
+    <div *ngIf="name.dirty && name.errors">
+      Please provide the Name!
+    </div>
+  </div>
+  <div class="form-group">
+    <input #email="ngModel" required email class="form-control" type="email" [(ngModel)]="comment.email" name="email"
+      placeholder="Email">
+    {{ email.errors | json}}
+    <div *ngIf="email.dirty && email.errors?.required">
+      Please provide the Email!
+    </div>
+    <div *ngIf="email.dirty && email.errors?.email">
+      Please provide the valid Email!
+    </div>
+  </div>
+  <div class="form-group">
+    <input required minlength="10" maxlength="20" class="form-control" type="text" [(ngModel)]="comment.body"
+      name="body" placeholder="Body">
+  </div>
+  <div>
+    <!-- <button [disabled]="commentForm.pristine || commentForm.invalid" class="btn btn-primary" type="submit">Add
+      Comments</button> -->
+
+    <button class="btn btn-primary" type="submit">Add
+      Comments</button>
+  </div>
+</form>
