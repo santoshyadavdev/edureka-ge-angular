@@ -2,12 +2,25 @@
 <input type="text" [formControl]="nameFilter" placeholder="Enter the text to search">
 
 {{onboardingForm.value | json}}
+{{onboardingForm.errors | json}}
 
 <div>
   <button mat-raised-button color="primary" (click)="addPassport()">Add Passort</button>
 </div>
 
 <form [formGroup]="onboardingForm" class="example-form" (ngSubmit)="addEmployee()">
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" placeholder="fgfdgdfg">
+  </mat-form-field>
+  <mat-form-field  class="example-full-width">
+    <mat-label>Confirm Password</mat-label>
+    <input matInput formControlName="confirmPassword" placeholder="dfgsdg">
+    <mat-error *ngIf="onboardingForm.get('confirmPassword').hasError('invalidPassword')">
+      Password and confirm password do not match!
+    </mat-error>
+  </mat-form-field>
 
   <mat-form-field *ngIf="onboardingForm.get('passport')" class="example-full-width">
     <mat-label>Passport</mat-label>
@@ -22,6 +35,9 @@
     {{onboardingForm.get('name').errors | json }}
     <mat-error *ngIf="onboardingForm.get('name').hasError('maxlength')">
       Please enter name which is less than 20 chars.
+    </mat-error>
+    <mat-error *ngIf="onboardingForm.get('name').hasError('invalidName')">
+      Your name is invalid, as it conraints test keyword!
     </mat-error>
   </mat-form-field>
   <mat-form-field class="example-full-width">
@@ -53,12 +69,9 @@
     <mat-form-field class="example-full-width">
       <mat-label>Address Line2</mat-label>
       <input matInput formControlName="addr2" placeholder="Ex. fdfkjds">
-      <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-          Email is <strong>required</strong>
-        </mat-error> -->
+      <mat-error *ngIf="onboardingForm.get('address.addr2').hasError('invalidChar')">
+        Please enter address without special chars!
+      </mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>City</mat-label>

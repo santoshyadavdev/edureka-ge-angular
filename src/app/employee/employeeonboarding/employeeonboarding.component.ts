@@ -3,6 +3,7 @@ import {
   FormControl, FormGroup,
   FormBuilder, FormArray, Validators
 } from '@angular/forms';
+import { CustomValidator } from './custom.validator';
 
 @Component({
   selector: 'ge-employeeonboarding',
@@ -25,20 +26,30 @@ export class EmployeeonboardingComponent implements OnInit {
     this.nameFilter = this.fb.control('');
     this.onboardingForm = this.fb.group({
       // name: new FormControl({ value: 'fsdfjhg', disabled: true }, [Validators.required]),
-      name: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]),
+      name: new FormControl('', {
+        updateOn: 'blur',
+        validators: [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(20),
+          CustomValidator.validateName
+        ]
+      }),
+      password: [''],
+      confirmPassword: [],
       email: ['', [Validators.required, Validators.email]],
       dob: new FormControl(''),
       tnc: new FormControl('', Validators.requiredTrue),
       address: this.fb.group({
         addr1: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
-        addr2: new FormControl(''),
+        addr2: new FormControl('', CustomValidator.specialCharValidator(['?', '@'])),
         city: new FormControl(''),
         pin: new FormControl('')
       }),
       pastExp: this.fb.array([
         this.buildForm()
       ])
-    })
+    }, { updateOn: 'blur', validators: [CustomValidator.passwordValidator] })
   }
 
   addExp() {
