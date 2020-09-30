@@ -9,6 +9,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,8 @@ import { ApiInterceptor } from './api.interceptor';
 import { CommentsAddComponent } from './comments/comments-add/comments-add.component';
 import { EmployeeonboardingComponent } from './employee/employeeonboarding/employeeonboarding.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { TodosComponent } from './todos/todos.component';
+import { TodosAddComponent } from './todos/todos-add/todos-add.component';
 
 const loggerService = environment.production ? LoggerService : [];
 
@@ -50,7 +53,9 @@ const loggerService = environment.production ? LoggerService : [];
     CommentsListComponent,
     PhotosComponent,
     CommentsAddComponent,
-    EmployeeonboardingComponent
+    EmployeeonboardingComponent,
+    TodosComponent,
+    TodosAddComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,8 @@ const loggerService = environment.production ? LoggerService : [];
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatCheckboxModule
   ],
   providers: [loggerService,
     {

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import {
+  FormControl, FormGroup,
+  FormBuilder, FormArray, Validators
+} from '@angular/forms';
 
 @Component({
   selector: 'ge-employeeonboarding',
@@ -21,24 +24,50 @@ export class EmployeeonboardingComponent implements OnInit {
   ngOnInit(): void {
     this.nameFilter = this.fb.control('');
     this.onboardingForm = this.fb.group({
-      name: new FormControl(''),
-      email: new FormControl(''),
+      // name: new FormControl({ value: 'fsdfjhg', disabled: true }, [Validators.required]),
+      name: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]),
+      email: ['', [Validators.required, Validators.email]],
       dob: new FormControl(''),
+      tnc: new FormControl('', Validators.requiredTrue),
       address: this.fb.group({
-        addr1: new FormControl(''),
+        addr1: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
         addr2: new FormControl(''),
         city: new FormControl(''),
         pin: new FormControl('')
       }),
       pastExp: this.fb.array([
-        this.fb.group({
-          employer: new FormControl(''),
-          fromDate: new FormControl(''),
-          toDate: new FormControl(''),
-          designation: new FormControl('')
-        })
+        this.buildForm()
       ])
     })
   }
 
+  addExp() {
+    this.pastExp.push(this.buildForm())
+  }
+
+  removeExp(i: number) {
+    this.pastExp.removeAt(i);
+  }
+
+  clearExp() {
+    this.pastExp.clear();
+  }
+
+
+  private buildForm() {
+    return this.fb.group({
+      employer: new FormControl('', Validators.required),
+      fromDate: new FormControl(''),
+      toDate: new FormControl(''),
+      designation: new FormControl('')
+    });
+  }
+
+  addPassport() {
+    this.onboardingForm.addControl('passport', new FormControl(''))
+  }
+
+  addEmployee() {
+    console.log(this.onboardingForm.getRawValue());
+  }
 }
