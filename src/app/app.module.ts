@@ -42,6 +42,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { CommentsDetailsComponent } from './comments/comments-details/comments-details.component';
+import { LoginComponent } from './login/login.component';
 
 const loggerService = environment.production ? LoggerService : [];
 
@@ -66,7 +67,8 @@ const loggerService = environment.production ? LoggerService : [];
     TodosAddComponent,
     MainNavComponent,
     PagenotfoundComponent,
-    CommentsDetailsComponent
+    CommentsDetailsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

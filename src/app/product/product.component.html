@@ -1,3 +1,15 @@
+<ng-container *ngIf="routeData$ | async as routeData ">
+  <h1>
+    {{routeData.title }}
+  </h1>
+  <h2>{{routeData.desc }}</h2>
+</ng-container>
+<!-- <h1>
+  {{(routeData$ | async).title }}
+</h1>
+<h2>{{(routeData$ | async).desc }}</h2> -->
+
+
 <!-- Interpolation -->
 <ge-header></ge-header>
 

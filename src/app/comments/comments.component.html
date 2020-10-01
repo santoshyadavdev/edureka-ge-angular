@@ -1,11 +1,14 @@
 <ge-photos></ge-photos>
 <mat-divider></mat-divider>
-<ge-comments-add></ge-comments-add>
+<!-- <ge-comments-add></ge-comments-add> -->
 <!-- <button mat-raised-button color="primary" (click)="addComment()">
   Add Comment
 </button> -->
 <mat-divider>
 </mat-divider>
+<button mat-raised-button color="primary" [routerLink]="['add/comment']">
+  Add Comment
+</button>
 <button mat-raised-button color="primary" (click)="updateComment()">
   Update Comment
 </button>
@@ -13,5 +16,8 @@
 <button mat-raised-button color="primary" (click)="deleteComment()">
   Delete Comment
 </button>
+<mat-divider></mat-divider>
+
+<router-outlet></router-outlet>
 
 <ge-comments-list [comments]="commentList$ | async"></ge-comments-list>

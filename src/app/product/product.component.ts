@@ -3,9 +3,17 @@ import {
   ElementRef,
   OnInit, QueryList, Renderer2, ViewChild, ViewChildren, ViewEncapsulation
 } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { HeaderComponent } from '../header/header.component';
 import { Product } from './product';
+
+interface RouteData {
+  title: string;
+  desc: string;
+}
 
 @Component({
   selector: 'ge-product',
@@ -21,7 +29,7 @@ export class ProductComponent implements OnInit, AfterViewInit {
 
   @ViewChildren(HeaderComponent) headerListComponet: QueryList<HeaderComponent>;
 
-  @ViewChild('footer', {static: true }) footerDiv: ElementRef;
+  @ViewChild('footer', { static: true }) footerDiv: ElementRef;
 
   name: string = 'Suchita';
 
@@ -37,13 +45,32 @@ export class ProductComponent implements OnInit, AfterViewInit {
     price: 65000
   };
 
-  constructor(private renderer: Renderer2) { }
+  // title: string;
+  // desc: string;
+
+  routeData$: Observable<RouteData>;
+
+  constructor(private renderer: Renderer2,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.headerComponent.title = 'Hello User';
 
     this.renderer.setProperty(this.footerDiv.nativeElement, 'innerText', 'This is a footer appeneded using viewChild');
 
+    // this.route.data.subscribe(res => {
+    //   this.title = res['title'];
+    //   this.desc = res['description']
+    // });
+
+    this.routeData$ = this.route.data.pipe(
+      map((res) => {
+        let routeData: RouteData = {
+          desc: res['description'],
+          title: res['title']
+        };
+        return routeData;
+      }));
     // this.footerDiv.nativeElement.innerText = "This is a footer appeneded using viewChild";
   }
 

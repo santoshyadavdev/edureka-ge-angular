@@ -1,4 +1,5 @@
-import { Component, Optional, SkipSelf } from '@angular/core';
+import { Component, OnInit, Optional, SkipSelf } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { Employee } from './employee/employee';
 import { EmployeeService } from './employee/services/employee.service';
 import { LoggerService } from './logger.service';
@@ -12,15 +13,26 @@ import { LoggerService } from './logger.service';
   // styles: ['h1 { color: steelblue; }'],
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'edureka-app';
 
-  role= 'User'; // User
+  role = 'User'; // User
 
   constructor(@SkipSelf() private employeeService: EmployeeService,
-    @Optional() private loggerService: LoggerService) {
+    @Optional() private loggerService: LoggerService,
+    private router: Router) {
 
-    }
+  }
+  ngOnInit(): void {
+    this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationStart) {
+        console.log('Your navigation is in progress')
+      }
+      if (evt instanceof NavigationEnd) {
+        console.log('Your navigation is completed');
+      }
+    });
+  }
 
   addEmployee() {
     const employee: Employee = {
@@ -32,7 +44,7 @@ export class AppComponent {
     };
 
     this.employeeService.addEmployee(employee);
-    if(this.loggerService) {
+    if (this.loggerService) {
       this.loggerService.log('New Employee added');
     }
   }
