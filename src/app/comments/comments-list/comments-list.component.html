@@ -12,10 +12,13 @@
       <th>Post Id</th>
       <th>Name</th>
       <th>
-       Email
+        Email
       </th>
       <th>
         Body
+      </th>
+      <th>
+        Action
       </th>
     </tr>
   </thead>
@@ -26,6 +29,9 @@
       <td>{{comment.name}}</td>
       <td>{{comment.email}}</td>
       <td>{{comment.body}}</td>
+      <td>
+        <button class="btn btn-success" [routerLink]="['/comments',comment.id]">Details</button>
+      </td>
     </tr>
   </tbody>
 </table>

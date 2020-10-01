@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Comment } from '../services/comments';
 
 @Component({
   selector: 'ge-comments-list',

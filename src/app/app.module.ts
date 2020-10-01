@@ -34,6 +34,14 @@ import { EmployeeonboardingComponent } from './employee/employeeonboarding/emplo
 import { MatNativeDateModule } from '@angular/material/core';
 import { TodosComponent } from './todos/todos.component';
 import { TodosAddComponent } from './todos/todos-add/todos-add.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { CommentsDetailsComponent } from './comments/comments-details/comments-details.component';
 
 const loggerService = environment.production ? LoggerService : [];
 
@@ -55,7 +63,10 @@ const loggerService = environment.production ? LoggerService : [];
     CommentsAddComponent,
     EmployeeonboardingComponent,
     TodosComponent,
-    TodosAddComponent
+    TodosAddComponent,
+    MainNavComponent,
+    PagenotfoundComponent,
+    CommentsDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +82,12 @@ const loggerService = environment.production ? LoggerService : [];
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [loggerService,
     {
