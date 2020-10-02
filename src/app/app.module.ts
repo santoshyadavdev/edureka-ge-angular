@@ -16,10 +16,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
-import { EmployeeComponent } from './employee/employee.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { HeaderComponent } from './header/header.component';
 import { ContainerComponent } from './container/container.component';
 import { environment } from 'src/environments/environment';
@@ -32,7 +30,6 @@ import { CommentsListComponent } from './comments/comments-list/comments-list.co
 import { PhotosComponent } from './comments/photos/photos.component';
 import { ApiInterceptor } from './api.interceptor';
 import { CommentsAddComponent } from './comments/comments-add/comments-add.component';
-import { EmployeeonboardingComponent } from './employee/employeeonboarding/employeeonboarding.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { TodosComponent } from './todos/todos.component';
 import { TodosAddComponent } from './todos/todos-add/todos-add.component';
@@ -52,9 +49,7 @@ const loggerService = environment.production ? LoggerService : [];
   declarations: [
     AppComponent,
     ProductComponent,
-    EmployeeComponent,
     ProductListComponent,
-    EmployeeListComponent,
     HeaderComponent,
     ContainerComponent,
     PokemonComponent,
@@ -64,7 +59,6 @@ const loggerService = environment.production ? LoggerService : [];
     CommentsListComponent,
     PhotosComponent,
     CommentsAddComponent,
-    EmployeeonboardingComponent,
     TodosComponent,
     TodosAddComponent,
     MainNavComponent,

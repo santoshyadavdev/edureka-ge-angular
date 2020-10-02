@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommentsAddComponent } from './comments/comments-add/comments-add.component';
 import { CommentsDetailsComponent } from './comments/comments-details/comments-details.component';
 import { CommentsComponent } from './comments/comments.component';
-import { EmployeeComponent } from './employee/employee.component';
-import { EmployeeonboardingComponent } from './employee/employeeonboarding/employeeonboarding.component';
+// import { EmployeeComponent } from './employee/employee.component';
+// import { EmployeeonboardingComponent } from './employee/employeeonboarding/employeeonboarding.component';
 import { LoginComponent } from './login/login.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProductComponent } from './product/product.component';
@@ -17,8 +17,11 @@ const routes: Routes = [
       description: 'Collection of all products'
     }
   },
-  { path: 'employee', component: EmployeeComponent },
-  { path: 'employee/onboarding', component: EmployeeonboardingComponent },
+  {
+    path: 'employee',
+    loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule)
+  },
+  // { path: 'employee/onboarding', component: EmployeeonboardingComponent },
   {
     path: 'comments', component: CommentsComponent,
     children: [
@@ -28,6 +31,10 @@ const routes: Routes = [
   },
   // { path: 'comments/:commentid', component: CommentsDetailsComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: 'orders',
+    loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule)
+  },
   { path: '**', component: PagenotfoundComponent }
 ];
 

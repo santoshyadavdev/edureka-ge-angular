@@ -1,7 +1,7 @@
 import { Component, OnInit, Optional, SkipSelf } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
-import { Employee } from './employee/employee';
-import { EmployeeService } from './employee/services/employee.service';
+// import { Employee } from './employee/employee';
+// import { EmployeeService } from './employee/services/employee.service';
 import { LoggerService } from './logger.service';
 
 @Component({
@@ -18,7 +18,8 @@ export class AppComponent implements OnInit {
 
   role = 'User'; // User
 
-  constructor(@SkipSelf() private employeeService: EmployeeService,
+  constructor(
+    // @SkipSelf() private employeeService: EmployeeService,
     @Optional() private loggerService: LoggerService,
     private router: Router) {
 
@@ -34,18 +35,18 @@ export class AppComponent implements OnInit {
     });
   }
 
-  addEmployee() {
-    const employee: Employee = {
-      id: 6,
-      dob: new Date('1-Jan-2005'),
-      email: 'test5@gmail.com',
-      name: 'Suchite',
-      salary: 50000
-    };
+  // addEmployee() {
+  //   const employee: Employee = {
+  //     id: 6,
+  //     dob: new Date('1-Jan-2005'),
+  //     email: 'test5@gmail.com',
+  //     name: 'Suchite',
+  //     salary: 50000
+  //   };
 
-    this.employeeService.addEmployee(employee);
-    if (this.loggerService) {
-      this.loggerService.log('New Employee added');
-    }
-  }
+  //   this.employeeService.addEmployee(employee);
+  //   if (this.loggerService) {
+  //     this.loggerService.log('New Employee added');
+  //   }
+  // }
 }
