@@ -17,6 +17,13 @@
 
 <ge-header></ge-header>
 {{name}}
+<mat-divider *ngIf="cart$">
+</mat-divider>
+
+<h1>Cart Data</h1>
+<pre>
+  {{cart$ | async | json  }}
+</pre>
 
 <!-- property binding -->
 <div [hidden]="hide" [innerText]="department"></div>

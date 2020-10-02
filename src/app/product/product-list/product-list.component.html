@@ -22,6 +22,9 @@
       <th>
         Category
       </th>
+      <th>
+        Action
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -36,6 +39,9 @@
       <td>{{product.price | currency}}</td>
       <td>{{product.mfd | date : 'dd-MMM-yyyy' | lowercase}}</td>
       <td>{{product.category | lowercase}}</td>
+      <td>
+        <button class="btn btn-primary" (click)="addToCart(product)">Add To Cart</button>
+      </td>
     </tr>
   </tbody>
 </table>

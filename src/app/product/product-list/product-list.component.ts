@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'ge-product-list',
@@ -25,13 +26,17 @@ export class ProductListComponent implements OnInit {
 
   fontstyle ='red';
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
   }
 
   trackByProductId(i: number, data: Product) {
       return data.id ?? i;
+  }
+
+  addToCart(product: Product): void {
+    this.productService.addProductToCart(product);
   }
 
 }

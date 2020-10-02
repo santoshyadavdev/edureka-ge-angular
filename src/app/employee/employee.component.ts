@@ -1,4 +1,6 @@
 import { Component, DoCheck, HostBinding, OnInit, Self, ViewEncapsulation } from '@angular/core';
+import { last, takeLast } from 'rxjs/operators';
+import { ProductService } from '../product/services/product.service';
 import { Employee } from './employee';
 import { EmployeeService } from './services/employee.service';
 
@@ -7,7 +9,7 @@ import { EmployeeService } from './services/employee.service';
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css'],
   encapsulation: ViewEncapsulation.None,
-  providers : [EmployeeService]
+  providers: [EmployeeService]
 })
 export class EmployeeComponent implements OnInit {
 
@@ -18,8 +20,13 @@ export class EmployeeComponent implements OnInit {
 
   // employeeService = new EmployeeService();
 
-  constructor(@Self() private employeeService: EmployeeService) { }
+  constructor(@Self() private employeeService: EmployeeService,
+    private productService: ProductService) { }
 
+  cart$ = this.productService.getProductCart();
+  // .pipe(
+  //   // takeLast(1)
+  // );
   ngOnInit(): void {
     this.employees = this.employeeService.getEmployeeList();
   }

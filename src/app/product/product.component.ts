@@ -5,10 +5,11 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 import { HeaderComponent } from '../header/header.component';
 import { Product } from './product';
+import { ProductService } from './services/product.service';
 
 interface RouteData {
   title: string;
@@ -44,16 +45,25 @@ export class ProductComponent implements OnInit, AfterViewInit {
     name: 'One Plus TV',
     price: 65000
   };
+  cart$: Observable<Product[]>;
 
   // title: string;
   // desc: string;
 
   routeData$: Observable<RouteData>;
 
+
+
   constructor(private renderer: Renderer2,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private productService: ProductService) { }
+
+
 
   ngOnInit(): void {
+    this.cart$ = this.productService.getProductCart().pipe(
+      tap(res=> console.log(res))
+    )
     this.headerComponent.title = 'Hello User';
 
     this.renderer.setProperty(this.footerDiv.nativeElement, 'innerText', 'This is a footer appeneded using viewChild');
