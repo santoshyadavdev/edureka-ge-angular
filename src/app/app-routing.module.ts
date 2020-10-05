@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommentsAddComponent } from './comments/comments-add/comments-add.component';
 import { CommentsDetailsComponent } from './comments/comments-details/comments-details.component';
 import { CommentsComponent } from './comments/comments.component';
+import { CommentdetailsGuard } from './comments/guards/commentdetails.guard';
+import { CommentsresolveGuard } from './comments/guards/commentsresolve.guard';
 import { AuthGuard } from './guards/auth.guard';
 // import { EmployeeComponent } from './employee/employee.component';
 // import { EmployeeonboardingComponent } from './employee/employeeonboarding/employeeonboarding.component';
@@ -19,10 +21,18 @@ const routes: Routes = [
   // { path: 'employee/onboarding', component: EmployeeonboardingComponent },
   {
     path: 'comments', component: CommentsComponent,
-    canActivate : [AuthGuard],
+    canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
+    resolve: {
+      commentList: CommentsresolveGuard
+    },
     children: [
-      { path: ':commentid', component: CommentsDetailsComponent },
+      {
+        path: ':commentid', component: CommentsDetailsComponent,
+        resolve: {
+          details: CommentdetailsGuard
+        }
+      },
       { path: 'add/comment', component: CommentsAddComponent }
     ]
   },

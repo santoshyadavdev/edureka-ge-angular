@@ -11,16 +11,15 @@ import { map, tap } from 'rxjs/operators';
 export class CommentsDetailsComponent implements OnInit {
 
   commentid: number = 0;
-  commentid$: Observable<number>;
+  commentDetails$: Observable<number>;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     // this.route.paramMap.subscribe((res) => this.commentid = + res.get('commentid'));
 
-    this.commentid$ = this.route.paramMap.pipe(
-      map((res) => +res.get('commentid')),
-      tap(res=> console.log(res)),
+    this.commentDetails$ = this.route.data.pipe(
+      map((res) => res['details'])
     );
   }
 

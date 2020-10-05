@@ -21,6 +21,12 @@ export class CommentsService {
     });
   }
 
+  getCommentsById(commentId: number): Observable<Comment> {
+    return this.http.get<Comment>(`${this.apiEndpoint}/comments/${commentId}`, {
+      headers: this.commenHeader
+    });
+  }
+
   addCommments(comment: Comment): Observable<Comment> {
     return this.http.post<Comment>(`${this.apiEndpoint}/comments`, comment, {
       headers: this.commenHeader
