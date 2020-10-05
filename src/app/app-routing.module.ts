@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommentsAddComponent } from './comments/comments-add/comments-add.component';
 import { CommentsDetailsComponent } from './comments/comments-details/comments-details.component';
 import { CommentsComponent } from './comments/comments.component';
+import { AuthGuard } from './guards/auth.guard';
 // import { EmployeeComponent } from './employee/employee.component';
 // import { EmployeeonboardingComponent } from './employee/employeeonboarding/employeeonboarding.component';
 import { LoginComponent } from './login/login.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   // { path: 'employee/onboarding', component: EmployeeonboardingComponent },
   {
     path: 'comments', component: CommentsComponent,
+    canActivate : [AuthGuard],
     children: [
       { path: ':commentid', component: CommentsDetailsComponent },
       { path: 'add/comment', component: CommentsAddComponent }
