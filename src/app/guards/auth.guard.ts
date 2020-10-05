@@ -14,15 +14,19 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.loginService.isLoggedIn) {
+    const loginStatus = sessionStorage.getItem('loginStatus') ? true : false;
+    if (loginStatus) {
       return true;
     }
     console.log(state.url);
-    return this.router.navigate(['/login'], { queryParams: { returnUrl: state.url.replace('/','') } });
+    return this.router.navigate(['/login'], { queryParams: { returnUrl: state.url.replace('/', '') } });
   }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if (state.url === '/comments/add/comment') {
+      return this.loginService.role === 'Admin';
+    }
     return true;
   }
   canDeactivate(

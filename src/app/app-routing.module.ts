@@ -20,6 +20,7 @@ const routes: Routes = [
   {
     path: 'comments', component: CommentsComponent,
     canActivate : [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       { path: ':commentid', component: CommentsDetailsComponent },
       { path: 'add/comment', component: CommentsAddComponent }
