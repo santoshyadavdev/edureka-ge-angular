@@ -7,16 +7,10 @@ import { CommentsComponent } from './comments/comments.component';
 // import { EmployeeonboardingComponent } from './employee/employeeonboarding/employeeonboarding.component';
 import { LoginComponent } from './login/login.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { ProductComponent } from './product/product.component';
+// import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  {
-    path: 'product', component: ProductComponent, data: {
-      title: 'All Products',
-      description: 'Collection of all products'
-    }
-  },
   {
     path: 'employee',
     loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule)

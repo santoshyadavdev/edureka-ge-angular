@@ -11,6 +11,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { HeaderModule } from '../header/header.module';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatInputModule,
     ReactiveFormsModule,
     MatDatepickerModule,
+    HeaderModule,
+    MatButtonModule
   ]
 })
 export class EmployeeModule { }

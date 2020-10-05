@@ -15,10 +15,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductComponent } from './product/product.component';
-import { ProductListComponent } from './product/product-list/product-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './header/header.component';
 import { ContainerComponent } from './container/container.component';
 import { environment } from 'src/environments/environment';
 import { LoggerService } from './logger.service';
@@ -42,15 +39,14 @@ import { MatListModule } from '@angular/material/list';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { CommentsDetailsComponent } from './comments/comments-details/comments-details.component';
 import { LoginComponent } from './login/login.component';
+import { HeaderModule } from './header/header.module';
+import { ProductModule } from './product/product.module';
 
 const loggerService = environment.production ? LoggerService : [];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
-    ProductListComponent,
-    HeaderComponent,
     ContainerComponent,
     PokemonComponent,
     PokemonListComponent,
@@ -68,6 +64,7 @@ const loggerService = environment.production ? LoggerService : [];
   ],
   imports: [
     BrowserModule,
+    ProductModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTableModule,
@@ -86,7 +83,8 @@ const loggerService = environment.production ? LoggerService : [];
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatBadgeModule
+    MatBadgeModule,
+    HeaderModule
   ],
   providers: [loggerService,
     {
