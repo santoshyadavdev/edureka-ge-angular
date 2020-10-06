@@ -10,6 +10,8 @@ import { TestService } from './services/test.service';
 export class AppComponent implements OnInit {
   title = 'admin';
 
+  lists = ['test1','test2','test3'];
+
   constructor(private testService: TestService,
     private adminService: AdminService) {
     console.log(testService.getEndPoint());

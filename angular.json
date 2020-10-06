@@ -242,6 +242,46 @@
           }
         }
       }
+    },
+    "ge-ui": {
+      "projectType": "library",
+      "root": "projects/ge-ui",
+      "sourceRoot": "projects/ge-ui/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ge-ui/tsconfig.lib.json",
+            "project": "projects/ge-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ge-ui/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ge-ui/src/test.ts",
+            "tsConfig": "projects/ge-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/ge-ui/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ge-ui/tsconfig.lib.json",
+              "projects/ge-ui/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "edureka-app",

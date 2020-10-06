@@ -7,6 +7,7 @@ import { APPCONFIG, CONFIGVALUES } from './appconfig.service';
 import { AdminService } from './services/admin.service';
 import { NewadminService } from './services/newadmin.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { GeUiModule } from 'ge-ui';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GeUiModule
   ],
   providers: [
     NewadminService,
