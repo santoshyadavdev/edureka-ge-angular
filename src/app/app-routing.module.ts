@@ -16,6 +16,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'employee',
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
     loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule)
   },
   // { path: 'employee/onboarding', component: EmployeeonboardingComponent },

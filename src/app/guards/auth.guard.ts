@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { fakeAsync } from '@angular/core/testing';
 import { CanActivate, CanActivateChild, CanDeactivate, CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from '../login/service/login.service';
@@ -39,6 +40,11 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+      const loginStatus = sessionStorage.getItem('loginStatus') ? true : false;
+      if (loginStatus) {
+        return true;
+      }
+      return false; //this.router.navigate(['/login'], { queryParams: { returnUrl: state.url.replace('/', '') } });
   }
+
 }
