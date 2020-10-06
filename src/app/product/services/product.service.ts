@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
+import { LoginService } from 'src/app/login/service/login.service';
 import { Product } from '../product';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductService {
 
   cart: Product[] = [];
@@ -15,7 +14,9 @@ export class ProductService {
   numbers$ = new ReplaySubject(2);
 
 
-  constructor() { }
+  constructor(userRole: string) {
+    console.log(userRole);
+  }
 
   addProductToCart(product: Product) {
     this.cart.push(product);

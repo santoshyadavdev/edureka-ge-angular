@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { ProductService } from '../product/services/product.service';
 
 @Component({
   selector: 'ge-main-nav',
@@ -20,7 +19,8 @@ export class MainNavComponent {
 
 
   constructor(private breakpointObserver: BreakpointObserver,
-    private productService: ProductService) {}
+    // private productService: ProductService
+    ) {}
 
-    cart$ = this.productService.getProductCart();
+    // cart$ = this.productService.getProductCart();
 }
