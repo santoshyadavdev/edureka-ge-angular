@@ -7,9 +7,13 @@ import { EmployeeGuard } from './guards/employee.guard';
 const routes: Routes = [
   { path: '', component: EmployeeComponent },
   {
-    path: 'onboarding', component: EmployeeonboardingComponent,
-    canDeactivate: [EmployeeGuard]
+    path: 'onboarding',
+    loadChildren: () => import('./employeeonboarding/employeeonboarding.module').then(m => m.EmployeeonboardingModule)
   }
+  // {
+  //   path: 'onboarding', component: EmployeeonboardingComponent,
+  //   canDeactivate: [EmployeeGuard]
+  // }
 ];
 
 @NgModule({

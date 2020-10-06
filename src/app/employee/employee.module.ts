@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeComponent } from './employee.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { EmployeeonboardingComponent } from './employeeonboarding/employeeonboarding.component';
+// import { EmployeeonboardingComponent } from './employeeonboarding/employeeonboarding.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -19,8 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     EmployeeComponent,
-    EmployeeListComponent,
-    EmployeeonboardingComponent,
+    EmployeeListComponent
   ],
   imports: [
     CommonModule,
