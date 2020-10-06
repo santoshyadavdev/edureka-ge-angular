@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AdminService } from './services/admin.service';
 import { TestService } from './services/test.service';
 
 @Component({
@@ -6,11 +7,18 @@ import { TestService } from './services/test.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'admin';
 
-  constructor(private testService: TestService) {
+  constructor(private testService: TestService,
+    private adminService: AdminService) {
     console.log(testService.getEndPoint());
     console.log(testService.getLocalStorage());
   }
+
+  ngOnInit() {
+    console.log(this.adminService.getAdminDetails());
+    console.log(this.adminService.logout())
+  }
+
 }

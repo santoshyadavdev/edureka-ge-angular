@@ -4,17 +4,23 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { APPCONFIG, CONFIGVALUES } from './appconfig.service';
+import { AdminService } from './services/admin.service';
+import { NewadminService } from './services/newadmin.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   providers: [
-    { provide : APPCONFIG, useValue : CONFIGVALUES }
+    NewadminService,
+    { provide : APPCONFIG, useValue : CONFIGVALUES },
+    { provide: AdminService, useExisting : NewadminService }
   ],
   bootstrap: [AppComponent]
 })
