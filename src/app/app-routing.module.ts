@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules, NoPreloading } from '@angular/router';
 import { CommentsAddComponent } from './comments/comments-add/comments-add.component';
 import { CommentsDetailsComponent } from './comments/comments-details/comments-details.component';
 import { CommentsComponent } from './comments/comments.component';
@@ -17,7 +17,7 @@ const routes: Routes = [
   {
     path: 'employee',
     canActivate: [AuthGuard],
-    canLoad: [AuthGuard],
+    // canLoad: [AuthGuard],
     loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule)
   },
   // { path: 'employee/onboarding', component: EmployeeonboardingComponent },
@@ -49,7 +49,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    enableTracing: false
+    enableTracing: false,
+    preloadingStrategy : NoPreloading
   })],
   exports: [RouterModule]
 })
