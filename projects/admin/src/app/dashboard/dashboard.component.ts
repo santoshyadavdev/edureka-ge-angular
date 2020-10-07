@@ -8,6 +8,8 @@ import { NewadminService } from '../services/newadmin.service';
 })
 export class DashboardComponent implements OnInit {
 
+  name: string= '';
+
   constructor(private newAdminService: NewadminService) { }
 
   ngOnInit(): void {

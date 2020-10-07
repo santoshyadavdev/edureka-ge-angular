@@ -8,16 +8,22 @@ import { AdminService } from './services/admin.service';
 import { NewadminService } from './services/newadmin.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GeUiModule } from 'ge-ui';
+import { FormsModule } from '@angular/forms';
+import { HoverDirective } from './directives/hover.directive';
+import { ValidationDirective } from './directives/validation.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    HoverDirective,
+    ValidationDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GeUiModule
+    GeUiModule,
+    FormsModule
   ],
   providers: [
     NewadminService,

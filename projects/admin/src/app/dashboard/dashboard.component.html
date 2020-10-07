@@ -1,1 +1,4 @@
-<p>dashboard works!</p>
+{{name}}
+
+{{inputName.errors | json }}
+<input #inputName="ngModel" appHover [(color)]="name" appValidation type="text" [(ngModel)]="name" name="name" placeholder="Enter the Name">
