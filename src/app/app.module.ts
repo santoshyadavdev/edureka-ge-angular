@@ -41,6 +41,7 @@ import { CommentsDetailsComponent } from './comments/comments-details/comments-d
 import { LoginComponent } from './login/login.component';
 import { HeaderModule } from './header/header.module';
 import { ProductModule } from './product/product.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 const loggerService = environment.production ? LoggerService : [];
 
@@ -84,7 +85,8 @@ const loggerService = environment.production ? LoggerService : [];
     MatIconModule,
     MatListModule,
     MatBadgeModule,
-    HeaderModule
+    HeaderModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [loggerService,
     {
