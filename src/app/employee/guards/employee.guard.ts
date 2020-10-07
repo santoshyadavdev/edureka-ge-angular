@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CanDeactivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EmployeeonboardingComponent } from '../employeeonboarding/employeeonboarding.component';
 
@@ -9,7 +9,7 @@ import { EmployeeonboardingComponent } from '../employeeonboarding/employeeonboa
 })
 export class EmployeeGuard implements CanDeactivate<EmployeeonboardingComponent> {
 
-  constructor(private snakBar : MatSnackBar) {
+  constructor(private snakBar: MatSnackBar) {
 
   }
 
@@ -18,11 +18,11 @@ export class EmployeeGuard implements CanDeactivate<EmployeeonboardingComponent>
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(component.onboardingForm.pristine) {
+    if (component.onboardingForm.pristine) {
       this.snakBar.open('You have some unsaved changes, please submit or reset form');
-      return false
+      return false;
     }
-      return true;
+    return true;
   }
 
 }

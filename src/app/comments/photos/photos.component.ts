@@ -9,7 +9,7 @@ import { CommentsService } from '../services/comments.service';
 })
 export class PhotosComponent implements OnInit {
 
-  loadeddata: number = 0;
+  loadeddata = 0;
   constructor(private photoService: CommentsService) { }
 
   ngOnInit(): void {
@@ -21,13 +21,13 @@ export class PhotosComponent implements OnInit {
         }
         case HttpEventType.ResponseHeader: {
           if (event.status === 200) {
-            console.log('Your request is being processed!')
+            console.log('Your request is being processed!');
           }
           break;
         }
         case HttpEventType.DownloadProgress: {
           this.loadeddata += event.loaded;
-          break
+          break;
         }
         case HttpEventType.Response: {
           console.log(event.body);

@@ -9,7 +9,7 @@ export class LoggerService {
     console.log('new logger service created');
    }
 
-  log(message:string) {
+  log(message: string) {
     console.log(message);
   }
 }

@@ -12,7 +12,7 @@ export class HoverDirective implements OnInit, OnChanges {
   @Output() colorChange = new EventEmitter<string>();
 
   constructor(private elementref: ElementRef,
-    private rendered: Renderer2) { }
+              private rendered: Renderer2) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
@@ -26,11 +26,11 @@ export class HoverDirective implements OnInit, OnChanges {
   }
 
   @HostListener('mouseover') onmouseover() {
-    this.rendered.setStyle(this.elementref.nativeElement, 'background-color', "green");
+    this.rendered.setStyle(this.elementref.nativeElement, 'background-color', 'green');
   }
 
   @HostListener('mouseleave') onmouseleave() {
-    this.rendered.setStyle(this.elementref.nativeElement, 'background-color', "white");
+    this.rendered.setStyle(this.elementref.nativeElement, 'background-color', 'white');
   }
 
 

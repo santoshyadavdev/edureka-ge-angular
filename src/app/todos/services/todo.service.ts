@@ -15,11 +15,11 @@ export class TodoService {
   }
 
   getTodo() {
-    let todo: Todo = {
+    const todo: Todo = {
       userId: 4,
       // completed: true,
       title: 'dgfhbkjsfghkj'
-    }
+    };
     return of(todo);
   }
 }

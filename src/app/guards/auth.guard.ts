@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { fakeAsync } from '@angular/core/testing';
-import { CanActivate, CanActivateChild, CanDeactivate, CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanDeactivate, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from '../login/service/login.service';
 
@@ -10,7 +10,7 @@ import { LoginService } from '../login/service/login.service';
 export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
 
   constructor(private loginService: LoginService,
-    private router: Router) { }
+              private router: Router) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -44,7 +44,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
       if (loginStatus) {
         return true;
       }
-      return false; //this.router.navigate(['/login'], { queryParams: { returnUrl: state.url.replace('/', '') } });
+      return false; // this.router.navigate(['/login'], { queryParams: { returnUrl: state.url.replace('/', '') } });
   }
 
 }

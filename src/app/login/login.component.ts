@@ -14,9 +14,9 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private fb: FormBuilder,
-    private router: Router,
-    private route: ActivatedRoute,
-    private loginService: LoginService) { }
+              private router: Router,
+              private route: ActivatedRoute,
+              private loginService: LoginService) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     //   this.router.navigate(['/product']);
     // }
     if (this.loginService.login(this.loginForm.get('userName').value, this.loginForm.get('password').value)) {
-      //this.router.navigate(['/product']);
+      // this.router.navigate(['/product']);
       this.route.queryParamMap.subscribe((res) => {
         const returnUrl = res.has('returnUrl') ? res.get('returnUrl') : 'product';
         this.router.navigate([returnUrl]);

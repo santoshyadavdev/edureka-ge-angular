@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules, NoPreloading } from '@angular/router';
+import { NoPreloading, PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { CommentsAddComponent } from './comments/comments-add/comments-add.component';
 import { CommentsDetailsComponent } from './comments/comments-details/comments-details.component';
 import { CommentsComponent } from './comments/comments.component';

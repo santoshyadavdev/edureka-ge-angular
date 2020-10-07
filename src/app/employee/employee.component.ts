@@ -22,8 +22,8 @@ export class EmployeeComponent implements OnInit {
   // employeeService = new EmployeeService();
 
   constructor(@Self() private employeeService: EmployeeService,
-    private productService: ProductService,
-    private loggerService: LoggerService) { }
+              private productService: ProductService,
+              private loggerService: LoggerService) { }
 
   cart$ = this.productService.getProductCart();
   // .pipe(

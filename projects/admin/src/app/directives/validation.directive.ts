@@ -10,9 +10,9 @@ export class ValidationDirective implements Validator {
   constructor() { }
 
   validate(control: AbstractControl): ValidationErrors {
-    if(control!= undefined && control.value != undefined) {
+    if (control != undefined && control.value != undefined) {
       if (control.value.includes('test')) {
-        return { invalidname: true }
+        return { invalidname: true };
       }
     }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TodoService } from '../services/todo.service';
 import { exhaustMap, filter, map, mergeMap, switchMap, tap } from 'rxjs/operators';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'ge-todos-add',
@@ -32,7 +32,7 @@ export class TodosAddComponent implements OnInit {
   bindFormData() {
     this.todoService.getTodo().subscribe(data =>
       this.todoForm.patchValue(data)
-    )
+    );
   }
 
   addTodo() { }

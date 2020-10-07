@@ -13,7 +13,7 @@ export class NewadminService extends AdminService {
     return {
       name: 'Vidya',
       department: 'IT'
-    }
+    };
   }
 
 }

@@ -8,7 +8,7 @@ import { Comment } from '../services/comments';
 })
 export class CommentsListComponent implements OnInit {
 
-  @Input() comments : Comment[] = [];
+  @Input() comments: Comment[] = [];
 
   constructor() { }
 

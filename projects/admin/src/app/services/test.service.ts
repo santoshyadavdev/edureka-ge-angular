@@ -1,7 +1,7 @@
-import { Injectable, Inject } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 
-import { APPCONFIG, LocalStorage } from '../appconfig.service';
 import { Config } from '../appconfig';
+import { APPCONFIG, LocalStorage } from '../appconfig.service';
 // var window: Window;
 
 // import { environment } from '../../environments/environment';
@@ -12,7 +12,7 @@ import { Config } from '../appconfig';
 export class TestService {
 
   constructor(@Inject(APPCONFIG) private appConfig: Config,
-    @Inject(LocalStorage) private localStorage: any) { }
+              @Inject(LocalStorage) private localStorage: any) { }
 
   getEndPoint() {
     return this.appConfig.apiEndpoint;

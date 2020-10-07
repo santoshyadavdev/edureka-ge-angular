@@ -8,7 +8,7 @@ import { NewadminService } from '../services/newadmin.service';
 })
 export class DashboardComponent implements OnInit {
 
-  name: string= '';
+  name = '';
 
   constructor(private newAdminService: NewadminService) { }
 

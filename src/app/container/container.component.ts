@@ -11,11 +11,11 @@ import { ProductComponent } from '../product/product.component';
 })
 export class ContainerComponent implements OnInit, AfterContentInit {
 
-  @ContentChild(ProductComponent, { static : true }) productComponent : ProductComponent;
+  @ContentChild(ProductComponent, { static : true }) productComponent: ProductComponent;
 
-  @ContentChild(ProductComponent, { read : ElementRef }) productElement : ElementRef;
+  @ContentChild(ProductComponent, { read : ElementRef }) productElement: ElementRef;
 
-  @ContentChildren(ProductComponent) productListComponent : QueryList<ProductComponent>;
+  @ContentChildren(ProductComponent) productListComponent: QueryList<ProductComponent>;
 
   // @ContentChildren(ProductComponent) productListComponent : QueryList<ProductComponent>;
 
@@ -30,7 +30,7 @@ export class ContainerComponent implements OnInit, AfterContentInit {
     console.log(this.productElement.nativeElement);
     // this.productElement.nativeElement.hidden = true;
     // this.productListComponent.notifyOnChanges()
-    this.productListComponent.forEach((productComp)=> console.log(productComp.hide));
+    this.productListComponent.forEach((productComp) => console.log(productComp.hide));
   }
 
 }

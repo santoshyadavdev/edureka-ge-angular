@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe((evt) => {
       if (evt instanceof NavigationStart) {
-        console.log('Your navigation is in progress')
+        console.log('Your navigation is in progress');
       }
       if (evt instanceof NavigationEnd) {
         console.log('Your navigation is completed');

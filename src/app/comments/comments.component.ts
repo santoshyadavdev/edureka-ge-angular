@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { CommentsService } from './services/comments.service';
-import { Comment } from './services/comments';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Comment } from './services/comments';
+import { CommentsService } from './services/comments.service';
 
 @Component({
   selector: 'ge-comments',
@@ -18,7 +18,7 @@ export class CommentsComponent implements OnInit {
   // commentList$: Observable<Comment[]> = this.commentService.getComments();
 
   commentList$: Observable<Comment[]> = this.route.data.pipe(
-    map(res => res['commentList'])
+    map(res => res.commentList)
   );
 
   constructor(

@@ -1,16 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule } from '@angular/forms';
+import { GeUiModule } from 'ge-ui';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { APPCONFIG, CONFIGVALUES } from './appconfig.service';
-import { AdminService } from './services/admin.service';
-import { NewadminService } from './services/newadmin.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { GeUiModule } from 'ge-ui';
-import { FormsModule } from '@angular/forms';
 import { HoverDirective } from './directives/hover.directive';
 import { ValidationDirective } from './directives/validation.directive';
+import { AdminService } from './services/admin.service';
+import { NewadminService } from './services/newadmin.service';
 
 @NgModule({
   declarations: [

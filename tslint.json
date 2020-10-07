@@ -147,6 +147,7 @@
       "element",
       "ge",
       "kebab-case"
-    ]
+    ],
+    "ordered-imports": true
   }
 }

@@ -12,7 +12,7 @@ export class AdminService {
     return {
       name: 'Anoop',
       department: 'IT'
-    }
+    };
   }
 
   getAllAdmin() {}

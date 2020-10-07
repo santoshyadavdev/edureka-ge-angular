@@ -24,11 +24,11 @@ export class ProductService {
 
     this.numbers$.next(1);
     this.numbers$.next(2);
-    this.numbers$.subscribe((res)=> console.log(res));
+    this.numbers$.subscribe((res) => console.log(res));
     this.numbers$.complete();
     this.numbers$.next(3);
     this.numbers$.next(4);
-    this.numbers$.subscribe((res)=> console.log(res));
+    this.numbers$.subscribe((res) => console.log(res));
     // this.cart$.complete();
     // this.cart$.error('this is an exception');
   }

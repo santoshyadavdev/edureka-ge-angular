@@ -32,11 +32,11 @@ export class ProductComponent implements OnInit, AfterViewInit {
 
   @ViewChild('footer', { static: true }) footerDiv: ElementRef;
 
-  name: string = 'Suchita';
+  name = 'Suchita';
 
-  department: string = 'Tech';
+  department = 'Tech';
 
-  hide: boolean = false;
+  hide = false;
 
   product: Product = {
     id: 4,
@@ -55,15 +55,15 @@ export class ProductComponent implements OnInit, AfterViewInit {
 
 
   constructor(private renderer: Renderer2,
-    private route: ActivatedRoute,
-    private productService: ProductService) { }
+              private route: ActivatedRoute,
+              private productService: ProductService) { }
 
 
 
   ngOnInit(): void {
     this.cart$ = this.productService.getProductCart().pipe(
-      tap(res=> console.log(res))
-    )
+      tap(res => console.log(res))
+    );
     this.headerComponent.title = 'Hello User';
 
     this.renderer.setProperty(this.footerDiv.nativeElement, 'innerText', 'This is a footer appeneded using viewChild');
@@ -75,9 +75,9 @@ export class ProductComponent implements OnInit, AfterViewInit {
 
     this.routeData$ = this.route.data.pipe(
       map((res) => {
-        let routeData: RouteData = {
-          desc: res['description'],
-          title: res['title']
+        const routeData: RouteData = {
+          desc: res.description,
+          title: res.title
         };
         return routeData;
       }));

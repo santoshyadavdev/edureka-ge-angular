@@ -10,7 +10,7 @@ import { map, tap } from 'rxjs/operators';
 })
 export class CommentsDetailsComponent implements OnInit {
 
-  commentid: number = 0;
+  commentid = 0;
   commentDetails$: Observable<number>;
 
   constructor(private route: ActivatedRoute) { }
@@ -19,7 +19,7 @@ export class CommentsDetailsComponent implements OnInit {
     // this.route.paramMap.subscribe((res) => this.commentid = + res.get('commentid'));
 
     this.commentDetails$ = this.route.data.pipe(
-      map((res) => res['details'])
+      map((res) => res.details)
     );
   }
 

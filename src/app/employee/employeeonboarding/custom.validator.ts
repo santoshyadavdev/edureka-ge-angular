@@ -6,7 +6,7 @@ export class CustomValidator {
     const value = control.value as string;
 
     if (value.includes('test')) {
-      return { invalidName: true }
+      return { invalidName: true };
     }
     return null;
   }
@@ -16,11 +16,11 @@ export class CustomValidator {
       const value = control.value as string;
       for (const c of char) {
         if (value.includes(c)) {
-          return { invalidChar: true }
+          return { invalidChar: true };
         }
       }
       return null;
-    }
+    };
   }
 
   static passwordValidator(form: FormGroup) {
@@ -28,7 +28,7 @@ export class CustomValidator {
     const confirmPassword = form.get('confirmPassword');
     if (password !== confirmPassword.value as string) {
       confirmPassword.setErrors({ invalidPassword: true });
-      return { invalidPassword: true }
+      return { invalidPassword: true };
     }
     return null;
   }

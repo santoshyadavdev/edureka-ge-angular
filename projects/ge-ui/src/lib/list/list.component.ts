@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 })
 export class ListComponent implements OnInit {
 
-  @Input() list : string[] = [];
+  @Input() list: string[] = [];
 
   constructor() { }
 

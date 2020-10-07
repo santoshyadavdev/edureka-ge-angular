@@ -7,7 +7,7 @@ import { Product } from '../product';
 export class CustomPipe implements PipeTransform {
 
   transform(products: Product[], price: number): Product[] {
-    return products.filter((prod)=> prod.price > price);
+    return products.filter((prod) => prod.price > price);
   }
 
 }

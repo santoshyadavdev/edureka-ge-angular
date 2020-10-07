@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormControl, FormGroup,
-  FormBuilder, FormArray, Validators
+  FormArray, FormBuilder,
+  FormControl, FormGroup, Validators
 } from '@angular/forms';
 import { CustomValidator } from './custom.validator';
 
@@ -12,9 +12,9 @@ import { CustomValidator } from './custom.validator';
 })
 export class EmployeeonboardingComponent implements OnInit {
 
-  nameFilter: FormControl;// = new FormControl('test');
+  nameFilter: FormControl; // = new FormControl('test');
 
-  get pastExp() {
+  get pastExp() : FormArray {
     return this.onboardingForm.get('pastExp') as FormArray;
   }
 
@@ -49,14 +49,14 @@ export class EmployeeonboardingComponent implements OnInit {
       pastExp: this.fb.array([
         this.buildForm()
       ])
-    }, { updateOn: 'blur', validators: [CustomValidator.passwordValidator] })
+    }, { updateOn: 'blur', validators: [CustomValidator.passwordValidator] });
   }
 
-  addExp() {
-    this.pastExp.push(this.buildForm())
+  addExp() : void {
+    this.pastExp.push(this.buildForm());
   }
 
-  removeExp(i: number) {
+  removeExp(i: number): void {
     this.pastExp.removeAt(i);
   }
 
@@ -75,7 +75,7 @@ export class EmployeeonboardingComponent implements OnInit {
   }
 
   addPassport() {
-    this.onboardingForm.addControl('passport', new FormControl(''))
+    this.onboardingForm.addControl('passport', new FormControl(''));
   }
 
   addEmployee() {

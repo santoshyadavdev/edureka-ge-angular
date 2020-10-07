@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Employee } from '../employee';
 
 @Component({
@@ -9,10 +9,10 @@ import { Employee } from '../employee';
 })
 export class EmployeeListComponent implements OnInit, OnChanges {
 
-  displayedColumns: string[] = ['id', 'name', 'email', 'dob','salary','action'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'dob', 'salary', 'action'];
   @Input() empList: Employee[] = [];
 
-  @Input() title : string;
+  @Input() title: string;
 
   @Output() selectedEmployee = new EventEmitter<Employee>();
 

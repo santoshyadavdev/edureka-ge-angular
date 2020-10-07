@@ -10,17 +10,17 @@ import { TestService } from './services/test.service';
 export class AppComponent implements OnInit {
   title = 'admin';
 
-  lists = ['test1','test2','test3'];
+  lists = ['test1', 'test2', 'test3'];
 
   constructor(private testService: TestService,
-    private adminService: AdminService) {
+              private adminService: AdminService) {
     console.log(testService.getEndPoint());
     console.log(testService.getLocalStorage());
   }
 
   ngOnInit() {
     console.log(this.adminService.getAdminDetails());
-    console.log(this.adminService.logout())
+    console.log(this.adminService.logout());
   }
 
 }
