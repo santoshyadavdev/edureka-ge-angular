@@ -1,4 +1,5 @@
 {{productList }}
+<input type="number" class="form-control" [(ngModel)]="price" name="price" placeholder="Enter the price">
 <table class="table" *ngIf="productList">
   <thead>
     <tr>
@@ -29,7 +30,7 @@
   </thead>
   <tbody>
     <!-- [ngClass]="e ? 'even': 'odd' " -->
-    <tr [ngClass]="e ? 'even': 'odd' " *ngFor="let product of productList | slice : 0:3; let i=index;
+    <tr [ngClass]="e ? 'even': 'odd' " *ngFor="let product of productList | priceFilter: price  ; let i=index;
      let e=even; let o=odd; trackBy: trackByProductId">
       <td>{{i}}</td>
       <td>{{e}}</td>
