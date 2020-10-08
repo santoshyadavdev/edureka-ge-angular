@@ -10,7 +10,7 @@ export class DashboardComponent implements OnInit {
 
   name = '';
 
-  constructor(private newAdminService: NewadminService) { }
+  // constructor(private newAdminService: NewadminService) { }
 
   ngOnInit(): void {
   }
