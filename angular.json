@@ -287,6 +287,123 @@
           }
         }
       }
+    },
+    "ecom": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ecom",
+      "sourceRoot": "projects/ecom/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ecom",
+            "index": "projects/ecom/src/index.html",
+            "main": "projects/ecom/src/main.ts",
+            "polyfills": "projects/ecom/src/polyfills.ts",
+            "tsConfig": "projects/ecom/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ecom/src/favicon.ico",
+              "projects/ecom/src/assets"
+            ],
+            "styles": [
+              "projects/ecom/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ecom/src/environments/environment.ts",
+                  "with": "projects/ecom/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ecom:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ecom:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ecom:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ecom/src/test.ts",
+            "polyfills": "projects/ecom/src/polyfills.ts",
+            "tsConfig": "projects/ecom/tsconfig.spec.json",
+            "karmaConfig": "projects/ecom/karma.conf.js",
+            "assets": [
+              "projects/ecom/src/favicon.ico",
+              "projects/ecom/src/assets"
+            ],
+            "styles": [
+              "projects/ecom/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ecom/tsconfig.app.json",
+              "projects/ecom/tsconfig.spec.json",
+              "projects/ecom/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ecom/e2e/protractor.conf.js",
+            "devServerTarget": "ecom:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ecom:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "edureka-app",
